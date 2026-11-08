@@ -1,0 +1,15 @@
+[project]
+name = "projeto-robo"
+version = "1.0.0"
+description = "Projeto do Robô — Entrega 1: menor custo em grade com recursão e regra gulosa"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+relatorio = ["reportlab>=4.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["projeto_robo"]
