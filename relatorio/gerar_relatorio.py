@@ -41,10 +41,9 @@ import test_robo as T  # noqa: E402
 # PREENCHAM AQUI os nomes dos integrantes do grupo e rodem o script de novo.
 # ---------------------------------------------------------------------------
 INTEGRANTES = [
-    "Nome do Integrante 1",
-    "Nome do Integrante 2",
-    "Nome do Integrante 3",
-    "Nome do Integrante 4",
+    "Leonardo Lucas",
+    "Carlos Adrians",
+    "Emanuel",
 ]
 GRUPO = "06"
 PROFESSOR = "Prof. Jemerson Damásio"
