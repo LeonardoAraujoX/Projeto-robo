@@ -1,4 +1,6 @@
-"""Monta entrega/entrega1_grupo06.zip com o código, os testes e o relatório.
+"""Monta entrega/entrega1_grupo06.zip só com o código e os testes.
+
+O relatório (entrega/entrega1_grupo06.pdf) é entregue à parte.
 
 Uso (a partir da pasta do projeto):
     python empacotar.py
@@ -15,12 +17,9 @@ ARQUIVOS = [
     "README.md",
     "main.py",
     "pyproject.toml",
-    "empacotar.py",
     "projeto_robo/__init__.py",
     "projeto_robo/robo.py",
     "tests/test_robo.py",
-    "relatorio/gerar_relatorio.py",
-    f"entrega/entrega1_grupo{GRUPO}.pdf",
 ]
 
 
@@ -31,8 +30,7 @@ def main():
         for relativo in ARQUIVOS:
             caminho = os.path.join(RAIZ, relativo)
             if not os.path.exists(caminho):
-                raise SystemExit(f"Arquivo não encontrado: {relativo} "
-                                 "(gere o relatório antes com relatorio/gerar_relatorio.py)")
+                raise SystemExit(f"Arquivo não encontrado: {relativo}")
             zipado.write(caminho, f"{pasta}/{relativo}")
     print(f"Pacote gerado em: {DESTINO}")
 

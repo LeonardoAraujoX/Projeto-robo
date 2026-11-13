@@ -3,35 +3,37 @@
 Programa em Python que encontra a **rota mais barata** de um robô em uma grade
 usando **recursão pura** (sem memoização), e compara com uma **regra gulosa**.
 
-## Estrutura
+Integrantes: Leonardo Lucas Braz Araújo, Carlos Adrians Araújo Damacena e
+Matheus Pinto Clemente.
+
+## Arquivos do código
 
 ```
-Fase 1 - Robo/
-├── projeto_robo/
-│   ├── __init__.py
-│   └── robo.py              ← resolver, recursivo, guloso, contar_chamadas, validar_custos
-├── tests/
-│   └── test_robo.py         ← testes automáticos (casos do professor + casos do grupo)
-├── relatorio/
-│   └── gerar_relatorio.py   ← gera o PDF do relatório rodando o próprio código
-├── entrega/
-│   ├── entrega1_grupo06.pdf ← relatório
-│   └── entrega1_grupo06.zip ← código para enviar
-├── empacotar.py             ← monta o .zip da entrega
-├── main.py                  ← demonstração pela linha de comando
-└── pyproject.toml
+projeto_robo/
+├── __init__.py
+└── robo.py           ← resolver, recursivo, guloso, contar_chamadas, validar_custos
+tests/
+└── test_robo.py      ← 16 testes automáticos (casos do professor + casos do grupo)
+main.py               ← demonstração pela linha de comando
+pyproject.toml
+README.md
 ```
+
+O relatório é entregue à parte, no arquivo `entrega1_grupo06.pdf`.
 
 ## Como executar
 
 Requer Python 3.10 ou mais novo. O código não usa nenhuma biblioteca externa.
+No Windows, se o comando `python` não funcionar, use `py` no lugar.
 
 ```bash
 python main.py
 ```
 
+No PowerShell, as aspas dentro do JSON são escritas como `\"`:
+
 ```bash
-python main.py "{\"custos\": [[1, 2], [3, 4]]}"
+python main.py '{\"custos\": [[1, 2], [3, 4]]}'
 ```
 
 ## Como testar
@@ -40,24 +42,7 @@ python main.py "{\"custos\": [[1, 2], [3, 4]]}"
 python -m unittest discover -s tests -v
 ```
 
-## Como gerar o relatório e o .zip
-
-O relatório usa a biblioteca `reportlab` (só para gerar o PDF):
-
-```bash
-pip install reportlab
-```
-
-```bash
-python relatorio/gerar_relatorio.py
-```
-
-```bash
-python empacotar.py
-```
-
-Os nomes dos integrantes ficam na lista `INTEGRANTES`, no início de
-`relatorio/gerar_relatorio.py`. Basta editar e rodar de novo.
+O resultado esperado termina com `Ran 16 tests` e `OK`.
 
 ---
 
@@ -99,4 +84,10 @@ chamada. O contador guarda só um número, nenhum resultado.
 ### 4. `guloso(mapa)` — a regra gulosa
 A partir da partida, olha só os vizinhos livres (direita e baixo), anda para o
 mais barato e, no empate, vai para a direita. Não olha o futuro, por isso erra:
-na grade do exemplo dá **26** contra **11** do recursivo.
+
+| Grade | Guloso | Recursivo (correto) |
+|---|---|---|
+| Exemplo do enunciado | 26 | 11 |
+| Própria 4×4 `[[1,1,1,1],[2,9,9,9],[1,9,9,9],[1,1,1,1]]` | 23 | 8 |
+| Própria 3×3 `[[1,1,1],[2,9,9],[1,1,1]]` | 13 | 6 |
+| Própria 3×3 `[[1,1,1],[5,1,null],[5,5,1]]` | fica preso | 9 |

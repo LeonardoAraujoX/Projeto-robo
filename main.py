@@ -19,6 +19,7 @@ GRADE_EXEMPLO = [
     [9, 9, 1, 1, 1],
 ]
 GRADE_GULOSA_ERRA = [[1, 1, 1], [2, 9, 9], [1, 1, 1]]
+GRADE_GULOSA_ERRA_4X4 = [[1, 1, 1, 1], [2, 9, 9, 9], [1, 9, 9, 9], [1, 1, 1, 1]]
 GRADE_GULOSA_PRESA = [[1, 1, 1], [5, 1, N], [5, 5, 1]]
 
 
@@ -47,7 +48,8 @@ def demonstracao():
 
     print("\n=== Regra gulosa (tarefa 6) ===")
     for nome, grade in [("Grade do exemplo", GRADE_EXEMPLO),
-                        ("Grade própria (erra)", GRADE_GULOSA_ERRA),
+                        ("Grade própria 4x4 (erra)", GRADE_GULOSA_ERRA_4X4),
+                        ("Grade própria 3x3 (erra)", GRADE_GULOSA_ERRA),
                         ("Grade própria (fica presa)", GRADE_GULOSA_PRESA)]:
         print(f"{nome:<28} guloso = {mostrar(guloso(grade)):<12} "
               f"recursivo = {mostrar(recursivo(grade))}")

@@ -41,14 +41,17 @@ import test_robo as T  # noqa: E402
 # PREENCHAM AQUI os nomes dos integrantes do grupo e rodem o script de novo.
 # ---------------------------------------------------------------------------
 INTEGRANTES = [
-    "Leonardo Lucas",
-    "Carlos Adrians",
-    "Emanuel",
+    "Leonardo Lucas Braz Araújo",
+    "Carlos Adrians Araújo Damacena",
+    "Matheus Pinto Clemente",
 ]
 GRUPO = "06"
 PROFESSOR = "Prof. Jemerson Damásio"
 
-SAIDA = os.path.join(RAIZ, "entrega", f"entrega1_grupo{GRUPO}.pdf")
+# O relatório OFICIAL do grupo é entrega/entrega1_grupo06.pdf (feito a partir de
+# relatorio/entrega1_grupo06.docx). Este script gera uma versão automática à
+# parte, só para conferir os números, sem sobrescrever o oficial.
+SAIDA = os.path.join(RAIZ, "relatorio", "relatorio_automatico.pdf")
 
 # ---------------------------------------------------------------------------
 # Fontes (Arial/Consolas do Windows, se existirem; senão as padrão do PDF)
@@ -454,7 +457,8 @@ def montar():
                 "10 chamadas."),
              li("<b>2 × 3</b>: as casas recebem 1, 1, 1 / 1, 2, 3 chamadas = 9."),
              li(f"<b>10 × 10</b>: 184.755 chamadas para uma grade de apenas 100 casas. Só a "
-                f"casa de chegada é chamada C(18, 9) = {canto_10:,} vezes".replace(",", ".")
+                "casa de chegada é chamada C(18, 9) = "
+                + f"{canto_10:,} vezes".replace(",", ".")
                 + ". O trabalho cresce de forma exponencial, porque o mesmo pedaço da grade é "
                   "recalculado muitas vezes. (Guardar esses resultados seria a memoização, "
                   "que fica para a Entrega 2.)"),

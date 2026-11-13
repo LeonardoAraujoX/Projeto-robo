@@ -32,6 +32,14 @@ GRADE_GULOSA_ERRA = [
     [1, 1, 1],
 ]
 
+# Grade própria 4x4 em que a regra gulosa erra (tarefa 6, "grade de até 4x4").
+GRADE_GULOSA_ERRA_4X4 = [
+    [1, 1, 1, 1],
+    [2, 9, 9, 9],
+    [1, 9, 9, 9],
+    [1, 1, 1, 1],
+]
+
 # Grade própria em que a regra gulosa fica presa, embora exista rota.
 GRADE_GULOSA_PRESA = [
     [1, 1, 1],
@@ -172,6 +180,11 @@ class TestGuloso(unittest.TestCase):
     def test_grade_propria_em_que_o_guloso_erra(self):
         self.assertEqual(guloso(GRADE_GULOSA_ERRA), 13)
         self.assertEqual(recursivo(GRADE_GULOSA_ERRA), 6)
+
+    def test_grade_propria_4x4_em_que_o_guloso_erra(self):
+        # Guloso: 1+1+1+1+9+9+1 = 23. Ótimo: 1+2+1+1+1+1+1 = 8.
+        self.assertEqual(guloso(GRADE_GULOSA_ERRA_4X4), 23)
+        self.assertEqual(recursivo(GRADE_GULOSA_ERRA_4X4), 8)
 
     def test_grade_propria_em_que_o_guloso_fica_preso(self):
         self.assertIsNone(guloso(GRADE_GULOSA_PRESA))
